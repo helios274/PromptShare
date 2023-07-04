@@ -21,10 +21,10 @@ const RootLayout = ({ children }) => {
               <Nav />
               <ToastContainer />
               {children}
+              <Footer />
             </main>
           </div>
         </Provider>
-        <Footer />
       </body>
     </html>
   );

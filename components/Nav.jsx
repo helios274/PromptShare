@@ -52,8 +52,14 @@ export const Nav = () => {
             </Link>
           </div>
         ) : (
-          <>
-            {providers &&
+          <div className="flex gap-3 md:gap-5">
+            <Link href="/sign-in" className="btn-black">
+              Sign In
+            </Link>
+            <Link href="/sign-up" className="btn-black">
+              Sign Up
+            </Link>
+            {/* {providers &&
               Object.values(providers).map((provider) => (
                 <button
                   type="button"
@@ -63,8 +69,8 @@ export const Nav = () => {
                 >
                   Sign In
                 </button>
-              ))}
-          </>
+              ))} */}
+          </div>
         )}
       </div>
 
@@ -110,19 +116,25 @@ export const Nav = () => {
             )}
           </div>
         ) : (
-          <>
-            {providers &&
+          <div className="flex gap-3 md:gap-5">
+            <Link href="/sign-in" className="btn-black">
+              Sign In
+            </Link>
+            <Link href="/sign-up" className="btn-black-sm">
+              Sign Up
+            </Link>
+            {/* {providers &&
               Object.values(providers).map((provider) => (
                 <button
                   type="button"
                   key={provider.name}
                   onClick={() => signIn(provider.id)}
-                  className="black_btn"
+                  className="btn-black-sm"
                 >
                   Sign In
                 </button>
-              ))}
-          </>
+              ))} */}
+          </div>
         )}
       </div>
     </nav>

@@ -12,7 +12,7 @@
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  padding: 0 19px 60px 19px;
+  padding: 0 19px 0 19px;
 
 }
 
@@ -42,9 +42,15 @@
 }
 
 .btn-black {
-  @apply py-1.5 px-4 border-2 rounded-full border-black bg-gray-900 text-white font-medium font-semibold hover:bg-transparent hover:text-gray-800 hover:shadow-md hover:shadow-gray-900/30
+  @apply py-1.5 px-4 border-2 rounded-full border-black bg-gray-900 text-white font-medium hover:bg-transparent hover:text-gray-800 hover:shadow-md hover:shadow-gray-900/30
+}
+.btn-black-sm {
+  @apply py-1 px-4 border rounded-full border-black bg-gray-900 text-white font-normal hover:bg-transparent hover:text-gray-800 hover:shadow-md hover:shadow-gray-900/30
 }
 
+.btn-cyan-outline {
+  @apply py-1.5 px-4 border-2 rounded-full border-cyan-400 bg-transparent text-black font-medium hover:bg-cyan-400
+}
 .btn-red-outline {
   @apply py-1.5 px-4 border-2 rounded-full border-red-500 text-red-600 font-medium hover:bg-red-500 hover:text-white hover:shadow-md hover:shadow-red-600/50
 }
@@ -113,7 +119,9 @@
 .form_input {
   @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
 }
-
+.form-input {
+  @apply my-2 py-1 sm:py-1.5 px-5 w-full border-2 rounded-full focus:outline-none focus:border-2
+}
 /* Nav Component */
 .logo_text {
   @apply max-sm:hidden font-satoshi font-semibold text-lg text-black tracking-wide;
