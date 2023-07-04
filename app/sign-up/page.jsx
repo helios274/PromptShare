@@ -3,7 +3,7 @@ import validateSignUp from "@utils/validation";
 import { useFormik } from "formik";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 
@@ -13,10 +13,6 @@ const SignUpPage = () => {
   useEffect(() => {
     if (session) {
       router.push("/");
-      toast.info("You are already signed in!", {
-        position: toast.POSITION.TOP_CENTER,
-        theme: "dark",
-      });
     }
   }, [session, router]);
   const formik = useFormik({
@@ -133,20 +129,23 @@ const SignUpPage = () => {
               Sign Up
             </button>
             <hr className="mx-4 border-[1.5px] rounded-full border-cyan-200" />
-            <button
-              type="submit"
-              className="mt-6 btn-cyan-outline flex gap-2 justify-center"
-            >
-              Sign in with Google
-              <Image
-                src="/assets/icons/google.svg"
-                alt="google-icon"
-                width={20}
-                height={20}
-                className="mt-[0.5px]"
-              />
-            </button>
           </form>
+          <button
+            type="submit"
+            className="mt-6 btn-cyan-outline flex gap-2 justify-center"
+            onClick={() => {
+              signIn("google");
+            }}
+          >
+            Sign in with Google
+            <Image
+              src="/assets/icons/google.svg"
+              alt="google-icon"
+              width={20}
+              height={20}
+              className="mt-[0.5px]"
+            />
+          </button>
         </div>
       </div>
     </div>
