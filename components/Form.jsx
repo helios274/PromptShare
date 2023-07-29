@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
   return (
-    <section className="w-full max-w-full flex flex-start flex-col bg-lime-300">
+    <section className="w-full max-w-full flex flex-start flex-col">
       <h1 className="head_text text-center">{type} Post</h1>
       <p className="desc text-left max-w-md">
         {type} and share prompts that will elevate your conversational

@@ -2,9 +2,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { signIn, signOut, getProviders, useSession } from "next-auth/react";
+import { signOut, getProviders, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export const Nav = () => {
+  const router = useRouter();
   const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
@@ -43,7 +45,11 @@ export const Nav = () => {
             </button>
             <Link href="/profile">
               <Image
-                src={session?.user.image}
+                src={
+                  session.user.image
+                    ? session.user.image
+                    : "/assets/icons/person-m.png"
+                }
                 alt="ChatterVerse logo"
                 width={37}
                 height={37}
@@ -59,17 +65,6 @@ export const Nav = () => {
             <Link href="/sign-up" className="btn-black">
               Sign Up
             </Link>
-            {/* {providers &&
-              Object.values(providers).map((provider) => (
-                <button
-                  type="button"
-                  key={provider.name}
-                  onClick={() => signIn(provider.id)}
-                  className="btn-black"
-                >
-                  Sign In
-                </button>
-              ))} */}
           </div>
         )}
       </div>
@@ -79,7 +74,11 @@ export const Nav = () => {
         {session?.user ? (
           <div className="flex">
             <Image
-              src={session?.user.image}
+              src={
+                session.user.image
+                  ? session.user.image
+                  : "/assets/icons/person-m.png"
+              }
               alt="ChatterVerse logo"
               width={37}
               height={37}
@@ -108,7 +107,7 @@ export const Nav = () => {
                     setToggleDropdown(false);
                     signOut();
                   }}
-                  className="mt-4 w-full btn-black"
+                  className="mt-4 w-full btn-black-sm"
                 >
                   Sign Out
                 </button>
@@ -117,23 +116,12 @@ export const Nav = () => {
           </div>
         ) : (
           <div className="flex gap-3 md:gap-5">
-            <Link href="/sign-in" className="btn-black">
+            <Link href="/sign-in" className="btn-black-sm">
               Sign In
             </Link>
             <Link href="/sign-up" className="btn-black-sm">
               Sign Up
             </Link>
-            {/* {providers &&
-              Object.values(providers).map((provider) => (
-                <button
-                  type="button"
-                  key={provider.name}
-                  onClick={() => signIn(provider.id)}
-                  className="btn-black-sm"
-                >
-                  Sign In
-                </button>
-              ))} */}
           </div>
         )}
       </div>

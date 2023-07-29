@@ -14,6 +14,9 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicons/favicon.ico" />
+      </head>
       <body className="gradient-blue-radial">
         <Provider>
           <div className="main">

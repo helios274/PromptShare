@@ -31,11 +31,13 @@ const SignInPage = () => {
         toast.success(`Welcome, @${values.username}`, {
           position: toast.POSITION.TOP_CENTER,
           theme: "dark",
+          autoClose: 3000,
         });
       } else {
         toast.error(`Login Error`, {
           position: toast.POSITION.TOP_CENTER,
           theme: "dark",
+          autoClose: 3000,
         });
       }
     },
@@ -45,8 +47,12 @@ const SignInPage = () => {
       <div className="relative sm:w-[30rem] bg-white/50 px-6 pb-8 pt-10 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:rounded-2xl sm:px-10">
         <div className="flex flex-col justify-center">
           <h1 className="text-center text-3xl font-bold">Welcome Back</h1>
+          <div className="mt-7 text-sm">
+            <p>test username: test123</p>
+            <p>test password: test1234</p>
+          </div>
           <form
-            className="mt-8 flex flex-col justify-items-center"
+            className="mt-2 flex flex-col justify-items-center"
             onSubmit={formik.handleSubmit}
           >
             <input
